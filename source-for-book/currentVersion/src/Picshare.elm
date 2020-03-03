@@ -10,6 +10,7 @@ import Html.Events exposing (onClick, onInput, onSubmit)
 
 
 -- END:imports
+-- START: model
 
 
 type alias Model =
@@ -34,6 +35,11 @@ initialModel =
     , comments = [ "Cowabunga, dude!" ]
     , newComment = ""
     }
+
+
+
+--END : model
+--START : view
 
 
 viewLoveButton : Model -> Html Msg
@@ -78,12 +84,6 @@ viewCommentList comments =
 
 
 viewComments : Model -> Html Msg
-
-
-
--- START:viewComments
-
-
 viewComments model =
     div []
         [ viewCommentList model.comments
@@ -102,10 +102,6 @@ viewComments model =
                 [ text "Save" ]
             ]
         ]
-
-
-
--- END:viewComments
 
 
 viewDetailedPhoto : Model -> Html Msg
@@ -131,7 +127,7 @@ view model =
 
 
 
--- START:msg
+--END : view
 
 
 type Msg
@@ -141,8 +137,7 @@ type Msg
 
 
 
--- END:msg
--- START:saveNewComment
+-- START:update
 
 
 saveNewComment : Model -> Model
@@ -162,17 +157,7 @@ saveNewComment model =
             }
 
 
-
--- END:saveNewComment
-
-
 update : Msg -> Model -> Model
-
-
-
--- START:update
-
-
 update msg model =
     case msg of
         ToggleLike ->
